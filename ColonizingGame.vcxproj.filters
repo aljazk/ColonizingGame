@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Entities">
+      <UniqueIdentifier>{d557d7f9-3f4d-4f65-a52e-5b60b18db54e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entites">
+      <UniqueIdentifier>{f7b01158-3c06-4f29-892d-7c67ea6b1ea7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entites\Shapes">
+      <UniqueIdentifier>{6df453bf-c969-4c68-a759-6c47551091e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Shapes">
+      <UniqueIdentifier>{f8a8e2a3-b9b4-45d2-ad71-22b047cda631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\World">
+      <UniqueIdentifier>{d77d02db-fec5-4c0e-8aeb-5b6a1e75dd0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entites\World">
+      <UniqueIdentifier>{5be9fbe0-88c5-4d46-b44f-88c8123b1a03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\World\Ground">
+      <UniqueIdentifier>{7e521d7a-b83a-495c-91ac-99138ebe52da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entites\World\Ground">
+      <UniqueIdentifier>{5c91d735-4ec3-4709-be1f-832af067730b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GUI">
+      <UniqueIdentifier>{80d7bd19-ded9-4bfa-a8fd-24fb3fc2f733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{2452f06f-0b16-4c36-b4af-29ef811e653d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ColonizingGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Entites</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Source Files\Entites\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Noise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Source Files\Entites\World\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="GroundTile.cpp">
+      <Filter>Source Files\Entites\World\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="GroundVertex.cpp">
+      <Filter>Source Files\Entites\World\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIComponent.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Header Files\Entities\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Noise.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Header Files\Entities\World\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="GroundTile.h">
+      <Filter>Header Files\Entities\World\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="GroundVertex.h">
+      <Filter>Header Files\Entities\World\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIComponent.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

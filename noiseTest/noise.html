@@ -1,0 +1,113 @@
+<html>
+
+<head>
+	<script>
+		var randArray = [];
+		function rand256() {
+			for(var i=0; i<256; i++){
+				var arr = [];
+				for(var j=0; j<256; j++){
+					arr.push(Math.random());
+				}
+				randArray.push(arr);
+			}
+		}
+		
+		function fade(t) {
+			return t*t*t*(t*(t*6.0 - 15.0) + 10.0);
+		}
+		
+		function grad(x, y) {
+			var v = randArray[x%255][y%255];
+			return v > 0.5 ? 1.0 : -1.0;
+		}
+		
+		
+		
+		function noise(x, y) {
+			var p0 = {x: Math.floor(x), y: Math.floor(y) };
+			var p1 = {x: p0.x + 1, y: p0.y};
+			var p2 = {x: p0.x, y: p0.y + 1};
+			var p3 = {x: p0.x + 1, y: p0.y + 1};
+
+
+			var g0 = grad(p0.x, p0.y);
+			var g1 = grad(p1.x, p1.y);
+			var g2 = grad(p2.x, p2.y);
+			var g3 = grad(p3.x, p3.y);
+			
+			var t0 = x - p0.x;
+			var fade_t0 = fade(t0);
+			var t1 = y - p0.y;
+			var fade_t1 = fade(t1);
+			
+			var p0p1 = (1.0 - fade_t0) * ((x - p0.x) * g0 + (y - p0.y) * g0) + fade_t0 * ((x - p1.x) * g1 + (y - p1.y) * g1); /* between upper two lattice points */
+			var p2p3 = (1.0 - fade_t0) * ((x - p2.x) * g2 + (y - p2.y) * g2) + fade_t0 * ((x - p3.x) * g3 + (y - p3.y) * g3); /* between lower two lattice points */
+  
+			return (1.0-fade_t1) * p0p1 + fade_t1 * p2p3;
+		}
+		
+		function getN(x, y) {
+			
+			return noise(x * 1.0/30.0, y * 1.0/30.0) * 8.0 +
+				noise(x * 1.0/15.0, y* 1.0/15.0) * 4.0 +
+				noise(x * 1.0/7.5, y* 1.0/7.5) * 2.0 +
+				noise(x * 1.0/3, y* 1.0/3) * 1.0;
+		}
+		
+		function getI(x,y, w) {
+			var mountainPos = 0.25;
+			var i = Math.sin(x*Math.PI / w) * Math.sin(y*Math.PI/400) * 20 - 22;
+			var m = Math.sin((x-w *mountainPos) / 30) * 20;
+			m += Math.sin(y*Math.PI/400)*20 ;
+			m -= 22;
+			if (m > 0 && (x-w * mountainPos) / 30 < Math.PI*1.5 && (x-w * mountainPos) / 30 > 0) i += m;
+			return i;
+		}
+		
+		function draw(t) {
+			var canvas = document.getElementById("mainCanvas");
+			var ctx = canvas.getContext("2d");
+			
+			var imgData = ctx.getImageData(0,0,canvas.width,canvas.height);
+			var data = imgData.data;
+			for(var i=0; i<data.length; i+=4){
+				x = (i/4)%canvas.width;
+				y = Math.floor((i/4)/canvas.width);
+					
+				
+				n = getN(x+t/10,y);
+				b = n + getI(x, y, canvas.width);
+				b = (b+15)*8;
+				//console.log(n);
+				//console.log(b);
+				data[i] = b;
+				data[i+1] = b;
+				data[i+2] = b;
+				data[i+3] = 255;
+			}
+			
+			/*
+			for(var x=1; x<200; x++) {
+				for(var y=1; y<200; y++) {
+					n = getN(x+t/100,y);
+					var b = (n*30+255)/2;
+					ctx.fillStyle = "rgba("+b+","+b+","+b+","+1+")";
+					ctx.fillRect( x, y, 1, 1 );
+				}
+			}
+			*/
+			ctx.putImageData(imgData, 0, 0);
+			//window.requestAnimationFrame(draw);
+		}
+		
+		rand256();
+		window.requestAnimationFrame(draw);
+	</script>
+</head>
+
+<body>
+	<canvas id="mainCanvas" height=400 width=500 style="border: 1px solid">
+	</canvas>
+</body>
+</html>
